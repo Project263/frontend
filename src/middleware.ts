@@ -6,10 +6,10 @@ export async function middleware(req: NextRequest) {
     if (!req.cookies.has('token')) {throw new Error('token is not set')}
   } catch (e) {
     console.info(e)
-    return NextResponse.redirect(new URL("/login", req.url))
+    return NextResponse.redirect(new URL("/signin", req.url))
   }
 }
 
 export const config = {
-  matcher: ['/((?!login|api|_next/static|images|favicon.ico).*)',]
+  matcher: ['/((?!signin|api|_next/static|images|favicon.ico).*)',]
 }
