@@ -3,6 +3,7 @@ import type { NextRequest } from 'next/server'
 
 export async function middleware(req: NextRequest) {
   try {
+    // TODO: проверить токен на валидность
     if (!req.cookies.has('token')) {return NextResponse.redirect(new URL("/signin", req.url))}
   } catch (e) {
     console.info(e)
